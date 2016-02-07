@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Photos</h1>
+
+<div class="well clearfix">
+  <% @photos.each do |photo| %>
+    <div class="col-md-3">
+      <%= link_to photo, class: 'thumbnail' do %>
+        <%= image_tag  photo.image.thumb('250x250').url if photo.image_stored? %>
+        <br>
+        <div class="text-center">
+          <%= photo.title %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
