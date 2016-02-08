@@ -1,6 +1,16 @@
 require 'rails_helper.rb'
 
 describe 'Photo' do
+  before(:each) do
+    visit new_user_registration_path
+
+    fill_in 'Email', with: 'test@test.ru'
+    fill_in 'Password', with: '00000000'
+    fill_in 'Password confirmation', with: '00000000'
+
+    click_on 'Sign up'
+  end
+
   it 'could be created' do
     visit new_photo_path
 

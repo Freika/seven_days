@@ -9,6 +9,8 @@
   <%= image_tag  @photo.image.url if @photo.image_stored? %>
 </p>
 
-<%= link_to 'Редактировать', edit_photo_path(@photo) %>
-|
-<%= link_to 'Удалить', @photo, method: :delete, data: { confirm: 'Вы уверены?' } %>
+<% if current_user == @photo.user %>
+  <%= link_to 'Редактировать', edit_photo_path(@photo) %>
+  |
+  <%= link_to 'Удалить', @photo, method: :delete, data: { confirm: 'Вы уверены?' } %>
+<% end %>
